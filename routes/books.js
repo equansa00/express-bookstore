@@ -36,6 +36,7 @@ router.get("/:id", async function (req, res, next) {
 /** POST /   bookData => {book: newBook}  */
 
 router.post("/", async function (req, res, next) {
+  console.log("Received POST request data:", req.body);
   try {
     const validate = ajv.compile(bookSchema);
     const valid = validate(req.body);
