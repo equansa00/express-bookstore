@@ -5,8 +5,8 @@ const bookSchema = {
     isbn: { type: "string" },
     amazon_url: { type: "string", format: "uri" },
     author: { type: "string" },
-    language: { type: ["string", "null"] }, // Allow null
-    pages: { type: ["integer", "null"] }, // Allow null
+    language: { type: ["string", "null"] },
+    pages: { type: ["integer", "null"] },
     publisher: { type: "string" },
     title: { type: "string" },
     year: { type: "integer" }

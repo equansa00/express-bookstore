@@ -1,6 +1,6 @@
 const chai = require('chai');
 const chaiHttp = require('chai-http');
-const app = require('../app'); // Adjust the path as needed to import your Express app
+const app = require('../app'); 
 const expect = chai.expect;
 
 chai.use(chaiHttp);
@@ -87,7 +87,6 @@ describe('PUT /authors/:id', function() {
 });
 
   
-  // Assuming you are deleting author with ID 1
 describe('DELETE /authors/:id', function() {
     it('should delete an author', function(done) {
       chai.request(app)

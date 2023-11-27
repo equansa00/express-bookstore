@@ -1,9 +1,7 @@
-// routes/genres.js
 const express = require('express');
 const router = new express.Router();
 const Genre = require('../models/genre');
 
-// POST route to add a genre
 router.post('/', async (req, res, next) => {
     try {
         const { name } = req.body;
@@ -14,7 +12,6 @@ router.post('/', async (req, res, next) => {
     }
 });
 
-// GET route to retrieve all genres
 router.get('/', async (req, res, next) => {
     try {
         const genres = await Genre.findAll();
@@ -24,7 +21,6 @@ router.get('/', async (req, res, next) => {
     }
 });
 
-// GET route to retrieve a single genre by id
 router.get('/:id', async (req, res, next) => {
     try {
         const { id } = req.params;
@@ -38,7 +34,6 @@ router.get('/:id', async (req, res, next) => {
     }
 });
 
-// PUT route to update a genre
 router.put('/:id', async (req, res, next) => {
     try {
         const { id } = req.params;
@@ -53,7 +48,6 @@ router.put('/:id', async (req, res, next) => {
     }
 });
 
-// DELETE route to delete a genre
 router.delete('/:id', async (req, res, next) => {
     try {
         const { id } = req.params;

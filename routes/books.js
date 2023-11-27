@@ -10,7 +10,6 @@ const bookSchema = require("../schemas/bookSchema");
 
 const router = new express.Router();
 
-/** GET / => {books: [book, ...]}  */
 
 router.get("/", async function (req, res, next) {
   try {
@@ -22,7 +21,6 @@ router.get("/", async function (req, res, next) {
   }
 });
 
-/** GET /[id]  => {book: book} */
 
 router.get("/:id", async function (req, res, next) {
   try {
@@ -33,7 +31,6 @@ router.get("/:id", async function (req, res, next) {
   }
 });
 
-/** POST /   bookData => {book: newBook}  */
 
 router.post("/", async function (req, res, next) {
   console.log("Received POST request data:", req.body);
@@ -52,7 +49,6 @@ router.post("/", async function (req, res, next) {
 });
 
 
-/** PUT /[isbn]   bookData => {book: updatedBook}  */
 
 router.put("/:isbn", async function (req, res, next) {
   try {
@@ -70,7 +66,6 @@ router.put("/:isbn", async function (req, res, next) {
   }
 });
 
-/** DELETE /[isbn]   => {message: "Book deleted"} */
 
 router.delete("/:isbn", async function (req, res, next) {
   try {

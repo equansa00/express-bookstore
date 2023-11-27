@@ -1,10 +1,14 @@
-// models/genre.js
-const db = require('../db'); // Assuming you have a db setup
+const db = require('../db'); 
 
 class Genre {
     static async create(name) {
-        const result = await db.query(`INSERT INTO genres (name) VALUES ($1) RETURNING *`, [name]);
-        return result.rows[0];
+        try {
+            const result = await db.query(`INSERT INTO genres (name) VALUES ($1) RETURNING *`, [name]);
+            return result.rows[0];
+        } catch (err) {
+            console.error("Error in Genre.create: ", err);
+            throw err;
+        }
     }
 
     static async findAll() {

@@ -1,10 +1,8 @@
-// models/userAuthor.js
-const db = require('../db'); // Adjust the path as needed
+const db = require('../db');
 
 class UserAuthor {
-
-    // Method to link a user to an author
-    static async add(userId, authorId) {
+    
+    static async followAuthor(userId, authorId) {
         const result = await db.query(
             `INSERT INTO user_authors (user_id, author_id) VALUES ($1, $2) RETURNING *`,
             [userId, authorId]
@@ -12,16 +10,13 @@ class UserAuthor {
         return result.rows[0];
     }
 
-    // Method to retrieve all authors followed by a specific user
-    static async findByUserId(userId) {
+    static async getFollowedAuthors(userId) {
         const result = await db.query(
-            `SELECT author_id FROM user_authors WHERE user_id = $1`,
+            `SELECT * FROM authors WHERE id IN (SELECT author_id FROM user_authors WHERE user_id = $1)`,
             [userId]
         );
         return result.rows;
     }
-
-    // Additional methods as needed...
 }
 
 module.exports = UserAuthor;

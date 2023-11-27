@@ -5,13 +5,12 @@ const chaiHttp = require('chai-http');
 const server = require('../app');
 const should = chai.should();
 const expect = chai.expect;
-const request = require('supertest')(server); // Import and use supertest
+const request = require('supertest')(server); 
 
 chai.use(chaiHttp);
 
 describe('Bookstore Test Suite', () => {
-  const testIsbn = '0908070605'; // Define a common ISBN for all tests
-
+  const testIsbn = '0908070605'; 
 
   describe('POST /books', () => {
     it('should create a new book', (done) => {
@@ -73,7 +72,7 @@ describe('Bookstore Test Suite', () => {
       it('it should UPDATE a book given the isbn', (done) => {
         let updatedBookData = {
             isbn: '0908070605',
-            amazon_url: 'http://a.co/eobPtX2', // Use the same URL as in the POST test
+            amazon_url: 'http://a.co/eobPtX2', 
             author: "New Author",
             title: "New Title",
             language: "english",
@@ -91,7 +90,6 @@ describe('Bookstore Test Suite', () => {
                 done(err);
             } else {
                 res.should.have.status(200);
-                // Add more assertions here to verify the response if necessary
                 done();
             }
           });
@@ -134,7 +132,6 @@ describe('Bookstore Test Suite', () => {
               done(err);
             } else {
               res.should.have.status(200);
-              // The test no longer expects the 'book' property in the response
               done();
             }
           });

@@ -1,9 +1,7 @@
-// routes/authors.js
 const express = require('express');
 const router = new express.Router();
 const Author = require('../models/author');
 
-// POST route to add an author
 router.post('/', async (req, res, next) => {
     console.log("Request body:", req.body);
     try {
@@ -16,7 +14,6 @@ router.post('/', async (req, res, next) => {
     }
 });
 
-// GET route to retrieve all authors
 router.get('/', async (req, res, next) => {
     try {
         const authors = await Author.findAll();
@@ -28,7 +25,6 @@ router.get('/', async (req, res, next) => {
 });
 
 
-// GET route to retrieve a single author by id
 router.get('/:id', async (req, res, next) => {
     try {
         const { id } = req.params;
@@ -42,7 +38,6 @@ router.get('/:id', async (req, res, next) => {
     }
 });
 
-// PUT route to update an author's information
 router.put('/:id', async (req, res, next) => {
     try {
         const { id } = req.params;
@@ -57,7 +52,6 @@ router.put('/:id', async (req, res, next) => {
     }
 });
 
-// DELETE route to delete an author
 router.delete('/:id', async (req, res, next) => {
     try {
         const { id } = req.params;
